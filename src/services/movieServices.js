@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base_url = "http://www.omdbapi.com/?apikey=a1a8539b&";
+const base_url = "https://www.omdbapi.com/?apikey=a1a8539b&";
 
 export const getMovies = (title, page = 1, type) => {
   console.log(
