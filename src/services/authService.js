@@ -2,9 +2,7 @@ export const registerUser = (data) => {
   const alreadyRegistered = "Already exist";
   const registeredSuccess = "Congrats! You're registered!";
   let user = Object.entries(data);
-  console.log("user", user);
 
-  console.log(localStorage.getItem("name") === user[0][1]);
   if (localStorage.getItem("name") === user[0][1]) {
     return alreadyRegistered;
   } else user.forEach((item) => localStorage.setItem(item[0], item[1]));

@@ -254,3 +254,30 @@ h1 {
 h2 {
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  .header-btn {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 44px;
+  }
+  .controls {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .search-input,
+  .search-btn {
+    height: 40px;
+  }
+  .search-btn {
+    width: fit-content;
+    margin-top: 10px;
+  }
+}
