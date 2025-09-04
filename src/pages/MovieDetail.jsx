@@ -6,8 +6,11 @@ import { addFavorites } from "../services/movieServices";
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const id = useParams().id;
-  let poster = "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923";
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites'))||[]);
+  let poster =
+    "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923";
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -18,14 +21,14 @@ const MovieDetail = () => {
     });
   }, []);
   const isFavorite = favorites.includes(id);
-  
+
   return (
     <div className="container">
       <h1>Detail info</h1>
       {movie && (
         <div className="info-wrapper">
           <img
-            src={movie.Poster !== "N/A" ? movie.Poster: poster}
+            src={movie.Poster !== "N/A" ? movie.Poster : poster}
             alt={movie.Title}
             className="info-img"
           />
@@ -63,16 +66,19 @@ const MovieDetail = () => {
               <p className="info-data">{movie.Awards}</p>
             </div>
             {!isFavorite ? (
-            <button
-            type="button"
-            className={`btn fav-btn info-btn ${
-              isFavorite ? "disabled" : ""
-            }`}
-            data-id={id}
-            onClick={(e) => setFavorites(addFavorites(e, favorites))}>
-            Add to favorites
-          </button>
-        ):(<p>&#x2665;&#xfe0f;</p>)}
+              <button
+                type="button"
+                className={`btn fav-btn info-btn ${
+                  isFavorite ? "disabled" : ""
+                }`}
+                data-id={id}
+                onClick={(e) => setFavorites(addFavorites(e, favorites))}
+              >
+                Add to favorites
+              </button>
+            ) : (
+              <p>&#x2665;&#xfe0f;</p>
+            )}
           </div>
         </div>
       )}

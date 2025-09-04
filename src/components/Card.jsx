@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { addFavorites } from "../services/movieServices";
 
 const Card = ({
@@ -11,10 +10,8 @@ const Card = ({
   favorites,
   setFavorites,
 }) => {
+  const isFavorite = favorites.includes(id);
 
-    const isFavorite = favorites.includes(id);
-        
-    console.log(id,isFavorite);
   let poster =
     Poster === "N/A"
       ? "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923"
@@ -33,14 +30,15 @@ const Card = ({
         {!isFavorite ? (
           <button
             type="button"
-            className={`btn fav-btn ${
-                isFavorite ? "disabled" : ""
-              }`}
+            className={`btn fav-btn ${isFavorite ? "disabled" : ""}`}
             data-id={id}
-            onClick={(e) => setFavorites(addFavorites(e, favorites))}>
+            onClick={(e) => setFavorites(addFavorites(e, favorites))}
+          >
             Add to favorites
           </button>
-        ):(<p>&#x2665;&#xfe0f;</p>)}
+        ) : (
+          <p>&#x2665;&#xfe0f;</p>
+        )}
       </div>
     </div>
   );

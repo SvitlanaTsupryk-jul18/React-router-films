@@ -13,13 +13,11 @@ function App() {
   const [user, setUser] = useState("");
   const setLoged = (userName) => {
     setUser(userName);
-    console.log("user", user, userName);
   };
 
-  
   return (
     <>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <Header user={user} />
         <Routes>
           <Route path="/" element={<Home />}></Route>

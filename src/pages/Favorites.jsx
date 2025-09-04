@@ -26,7 +26,6 @@ const Favorites = () => {
   return (
     <div className="container">
       <div className="favorites">
-        {console.log("1movies", movies)}
         {!!favorites.length
           ? movies.map((data) => {
               return (

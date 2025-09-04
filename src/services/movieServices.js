@@ -17,8 +17,10 @@ export const getDetails = (id) => {
 
 export const addFavorites = (e, favorites) => {
   e.stopPropagation();
-  let newFavorites = favorites.includes(e.target.dataset.id)? favorites: [...favorites, e.target.dataset.id];
-  return (newFavorites);
+  let newFavorites = favorites.includes(e.target.dataset.id)
+    ? favorites
+    : [...favorites, e.target.dataset.id];
+  return newFavorites;
 };
 
 ////////TODO remove from favorites

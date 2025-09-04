@@ -1,18 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Favorites from "../pages/Favorites";
 
 const Header = ({ user }) => {
-  //   const [action, setAction] = useState("");
   const navigate = useNavigate();
 
   const openAction = (action) => {
-    // setAction(action);
-    console.log("action", action);
     navigate("/" + action);
   };
-  //   useEffect(() => {
-  //   }, [action]);
+
   return (
     <header>
       <div className="container">
@@ -23,7 +17,6 @@ const Header = ({ user }) => {
       >
         Films
       </div>
-      {console.log("2user", user.user)}
       {user ? (
         <div className="user">{user}</div>
       ) : (

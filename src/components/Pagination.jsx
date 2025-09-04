@@ -25,10 +25,8 @@ const Pagination = (props) => {
 
     if (r2 + 1 < max) items.push("…");
     if (r2 < max) items.push(max);
-    console.log(current, prev, next, items);
 
     return items;
-    // return { current, prev, next, items };
   }, [totalResults, siblingCount, currentPage]);
 
   if (currentPage === 0 || totalResults < perPage) {
@@ -66,9 +64,8 @@ const Pagination = (props) => {
               <li
                 key={index}
                 className={`btn pagination-btn ${
-                  currentPage === index+1 ? "selected" : ""
+                  currentPage === index + 1 ? "selected" : ""
                 }`}
-          
                 onClick={() => onPageChange(item)}
               >
                 {item}

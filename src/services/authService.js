@@ -28,5 +28,3 @@ export const loginUser = (data) => {
   }
   return userLogged;
 };
-
-
